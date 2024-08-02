@@ -1,5 +1,7 @@
 # Employee Review Application 🚍
 
+![Image](demo.png)
+
 ## Project Overview
 
 This is a MERN stack application that consists of a **React** frontend and a **Node.js** backend. The application allows users to manage employee reviews and feedback, providing a dashboard for both admins and employees.
