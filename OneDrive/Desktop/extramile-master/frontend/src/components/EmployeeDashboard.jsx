@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function EmployeeDashboard(){
+function EmployeeDashboard({user}){
     const [assignedReviews, setAssignedReviews] = useState([]);
     const [feedback, setFeedback] = useState({ reviewId:'', content:''});
     const [reviews, setReviews] = useState([]);
@@ -64,18 +64,19 @@ function EmployeeDashboard(){
     return (
         <div>
             <h1>Employee Dashboard</h1>
+            <p>Logged in as: {user.email}</p>
             <section>
                 <h2>Assigned Reviews</h2>
-                <ul>
+                <div>
                     {assignedReviews.map((review) => (
-                        <li key={review._id}>
+                        <span key={review._id}>
                             <h3>{review.title}</h3>
                             <button onClick={() => setFeedback({ reviewId: review._id, content: '' })}>
                                 Submit Feedback
                             </button>
-                        </li>
+                        </span>
                     ))}
-                </ul>
+                </div>
 
                 {feedback.reviewId && (
                     <div>
@@ -103,18 +104,23 @@ function EmployeeDashboard(){
                         </option>
                     ))}
                 </select>
+                <br/>
+                <br/>
                 <input
                     type="text"
                     placeholder="Title"
                     value={newReview.title}
                     onChange={(e) => setNewReview({ ...newReview, title: e.target.value })}
                 />
+                <br />
                 <input
                     type="text"
                     placeholder="Description"
                     value={newReview.description}
                     onChange={(e) => setNewReview({ ...newReview, description: e.target.value })}
                 />
+                <br/>
+                <br/>
                 <button onClick={handleAddReview}>Add Review</button>
             </section>
         </div>

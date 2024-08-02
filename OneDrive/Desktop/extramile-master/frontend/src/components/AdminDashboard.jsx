@@ -125,6 +125,8 @@ function AdminDashboard() {
                         setNewEmployee({ ...newEmployee, name: e.target.value })
                     }
                 />
+                <br/>
+                <br/>
                 <input
                     type="email"
                     placeholder="Email"
@@ -133,6 +135,8 @@ function AdminDashboard() {
                         setNewEmployee({ ...newEmployee, email: e.target.value })
                     }
                 />
+                <br/>
+                <br/>
                 <input
                     type="text"
                     placeholder="Position"
@@ -141,6 +145,8 @@ function AdminDashboard() {
                         setNewEmployee({ ...newEmployee, position: e.target.value })
                     }
                 />
+                <br/>
+                <br/>
                 <input
                     type="text"
                     placeholder="Department"
@@ -148,7 +154,8 @@ function AdminDashboard() {
                     onChange={(e) =>
                         setNewEmployee({ ...newEmployee, department: e.target.value })
                     }
-                />  
+                />
+                
                 <button onClick={handleAddEmployees}>Add Employee</button>
             </section>
 
@@ -156,9 +163,9 @@ function AdminDashboard() {
                 <h2>Reviews</h2>
                 <ul>
                     {reviews.map((review) => (
-                        <li key={review._id}>
+                        <div key={review._id}>
                             {review.title} - {review.description}
-                        </li>
+                        </div>
                     ))}
                 </ul>
 
@@ -174,6 +181,8 @@ function AdminDashboard() {
                         </option>
                     ))}
                 </select>
+                <br/>
+                <br/>
                 <input
                     type="text"
                     placeholder="Title"
@@ -182,6 +191,8 @@ function AdminDashboard() {
                         setNewReview({ ...newReview, title: e.target.value })
                     }
                 />
+                <br/>
+                <br/>
                 <input
                     type="text"
                     placeholder="Description"
@@ -190,6 +201,7 @@ function AdminDashboard() {
                         setNewReview({ ...newReview, description: e.target.value })
                     }
                 />
+                
                 <button onClick={handleAddReview}>Add Review</button>
             </section>
         </div>
